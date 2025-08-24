@@ -211,6 +211,12 @@
             transform: translateY(0);
         }
         
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
         .thank-you {
             display: none;
             background: rgba(255, 255, 255, 0.05);
@@ -372,6 +378,46 @@
             border-color: rgba(255, 255, 255, 0.25);
         }
         
+        .file-preview {
+            margin-top: 12px;
+            display: none;
+        }
+        
+        .file-preview img {
+            max-width: 200px;
+            max-height: 150px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .file-name {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 13px;
+        }
+        
+        .remove-file-btn {
+            background: rgba(255, 100, 100, 0.1);
+            color: rgba(255, 100, 100, 0.8);
+            border: 1px solid rgba(255, 100, 100, 0.2);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .remove-file-btn:hover {
+            background: rgba(255, 100, 100, 0.2);
+            color: rgba(255, 100, 100, 1);
+        }
+        
         .friend-referral {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -485,25 +531,6 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="general-bug-yes" name="general-bug" value="yes">
-                            <label for="general-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="general-bug-no" name="general-bug" value="no">
-                            <label for="general-bug-no">No</label>
-                        </div>
-                    </div>
-                    <div class="bug-report-form" id="general-bug-form" style="display: none;">
-                        <div id="general-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('general')">+ Add Another Bug</button>
-                    </div>
-                </div>
-                
-                <div class="form-group">
                     <label for="app-purpose">Understanding the App</label>
                     <div class="question-text">Did you understand what the app was for right away?</div>
                     <div class="radio-group">
@@ -530,6 +557,25 @@
                     <label for="stuck-points">Confusion Points</label>
                     <div class="question-text">Were there any points where you felt stuck or confused?</div>
                     <textarea id="stuck-points" name="stuck-points" placeholder="Describe any moments where you felt lost or unsure..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Report a Bug</label>
+                    <div class="question-text">Did you encounter any bugs in this section?</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="general-bug-yes" name="general-bug" value="yes">
+                            <label for="general-bug-yes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="general-bug-no" name="general-bug" value="no">
+                            <label for="general-bug-no">No</label>
+                        </div>
+                    </div>
+                    <div class="bug-report-form" id="general-bug-form" style="display: none;">
+                        <div id="general-bug-reports"></div>
+                        <button type="button" class="add-bug-btn" onclick="addBugReport('general')">+ Add Another Bug</button>
+                    </div>
                 </div>
             </div>
             
@@ -941,7 +987,7 @@
         </form>
     </div>
     
-    <script>
+        <script>
         let bugCounters = {};
         let friendCounter = 0;
         
@@ -976,6 +1022,75 @@
             }
         });
         
+        // Handle file uploads
+        function setupFileUpload(fileInput) {
+            const wrapper = fileInput.closest('.file-input-wrapper');
+            const preview = wrapper.querySelector('.file-preview') || createFilePreview(wrapper);
+            
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    showFilePreview(preview, file, fileInput);
+                } else {
+                    hideFilePreview(preview);
+                }
+            });
+        }
+        
+        function createFilePreview(wrapper) {
+            const preview = document.createElement('div');
+            preview.className = 'file-preview';
+            preview.innerHTML = `
+                <img style="display: none;">
+                <div class="file-info">
+                    <span class="file-name"></span>
+                    <button type="button" class="remove-file-btn" onclick="removeFile(this)">Remove</button>
+                </div>
+            `;
+            wrapper.appendChild(preview);
+            return preview;
+        }
+        
+        function showFilePreview(preview, file, fileInput) {
+            const img = preview.querySelector('img');
+            const fileName = preview.querySelector('.file-name');
+            
+            fileName.textContent = file.name;
+            preview.style.display = 'block';
+            
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                img.style.display = 'none';
+            }
+            
+            // Store reference to the input for removal
+            preview.querySelector('.remove-file-btn').fileInput = fileInput;
+        }
+        
+        function hideFilePreview(preview) {
+            preview.style.display = 'none';
+            const img = preview.querySelector('img');
+            img.src = '';
+            img.style.display = 'none';
+        }
+        
+        function removeFile(button) {
+            const fileInput = button.fileInput;
+            const preview = button.closest('.file-preview');
+            
+            // Clear the file input
+            fileInput.value = '';
+            
+            // Hide the preview
+            hideFilePreview(preview);
+        }
+        
         function addBugReport(section) {
             if (!bugCounters[section]) bugCounters[section] = 0;
             bugCounters[section]++;
@@ -1006,6 +1121,10 @@
             bugItem.id = bugId;
             
             bugReports.appendChild(bugItem);
+            
+            // Setup file upload for the new input
+            const fileInput = bugItem.querySelector('input[type="file"]');
+            setupFileUpload(fileInput);
         }
         
         function removeBugReport(bugId, section) {
@@ -1074,17 +1193,20 @@
             }
         }
         
+        // Fixed form submission handler
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show loading state (optional)
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
+            const form = this;
+            
+            // Show loading state
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
             
-            // Use FormData to handle file uploads properly
-            const formData = new FormData(this);
+            // Create FormData from the form
+            const formData = new FormData(form);
             
             // Submit to Getform
             fetch('https://getform.io/f/arogykxb', {
@@ -1094,15 +1216,16 @@
             .then(response => {
                 if (response.ok) {
                     // Success - hide form and show thank you
-                    this.style.display = 'none';
-                    document.getElementById('thankYou').style.display = 'block';
-                    document.getElementById('thankYou').scrollIntoView({ behavior: 'smooth' });
+                    form.style.display = 'none';
+                    const thankYou = document.getElementById('thankYou');
+                    thankYou.style.display = 'block';
+                    thankYou.scrollIntoView({ behavior: 'smooth' });
                 } else {
-                    throw new Error('Form submission failed');
+                    throw new Error('Form submission failed with status: ' + response.status);
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
+                console.error('Submission error:', error);
                 // Reset button and show error
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
