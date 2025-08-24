@@ -1074,26 +1074,40 @@
             }
         }
         
-        // Form submission handler
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Collect all form data
+            // Show loading state (optional)
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Use FormData to handle file uploads properly
             const formData = new FormData(this);
-            const data = {};
             
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-            
-            window.feedbackData = data;
-            
-            this.style.display = 'none';
-            document.getElementById('thankYou').style.display = 'block';
-            
-            document.getElementById('thankYou').scrollIntoView({ behavior: 'smooth' });
-            
-            console.log('Feedback submitted:', data);
+            // Submit to Getform
+            fetch('https://getform.io/f/arogykxb', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success - hide form and show thank you
+                    this.style.display = 'none';
+                    document.getElementById('thankYou').style.display = 'block';
+                    document.getElementById('thankYou').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Reset button and show error
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                alert('There was an error submitting your feedback. Please try again.');
+            });
         });
     </script>
 </body>
