@@ -7,1231 +7,411 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            background: #000000;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        h1 {
-            color: white;
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-        
-        .subtitle {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
-            font-weight: 400;
-            margin-bottom: 30px;
-            display: block;
-        }
-        
-        .intro {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        
-        h2 {
-            color: white;
-            margin-top: 48px;
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        h2:before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 2px;
-        }
-        
-        .form-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        label {
-            display: block;
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 15px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-        
-        .question-text {
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 14px;
-            margin-bottom: 12px;
-            line-height: 1.6;
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            padding: 12px 16px;
-            color: rgba(255, 255, 255, 0.9);
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            transition: all 0.2s ease;
-        }
-        
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-            line-height: 1.6;
-        }
-        
-        .radio-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 8px;
-        }
-        
-        .radio-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        input[type="radio"] {
-            display: none;
-        }
-        
-        .radio-item {
-            position: relative;
-        }
-        
-        .radio-item label {
-            margin-bottom: 0;
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.75);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            padding: 10px 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: block;
-            text-align: center;
-            min-width: 80px;
-        }
-        
-        .radio-item label:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-        
-        .radio-item input[type="radio"]:checked + label {
-            background: rgba(255, 255, 255, 0.9);
-            color: #000000;
-            border-color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-        }
-        
-        .submit-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 32px;
-            margin-top: 60px;
-            text-align: center;
-        }
-        
-        .submit-btn {
-            background: rgba(255, 255, 255, 0.9);
-            color: #000000;
-            border: none;
-            border-radius: 12px;
-            padding: 16px 32px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            letter-spacing: -0.2px;
-        }
-        
-        .submit-btn:hover {
-            background: white;
-            transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-        
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .thank-you {
-            display: none;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 24px;
-            text-align: center;
-        }
-        
-        .thank-you h3 {
-            color: white;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        
-        .thank-you p {
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 14px;
-        }
-        
-        /* Mobile responsiveness */
-        @media (max-width: 640px) {
-            .container {
-                padding: 24px 16px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-            
-            h2 {
-                font-size: 20px;
-            }
-            
-            .form-section {
-                padding: 20px;
-            }
-            
-            .radio-group {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .submit-btn {
-                width: 100%;
-            }
-        }
-        
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Selection color */
-        ::selection {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-        
-        /* Placeholder styling */
-        ::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-        
-        /* Bug report form styling */
-        .bug-report-form {
-            margin-top: 16px;
-            padding: 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-        }
-        
-        .bug-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 16px;
-            position: relative;
-        }
-        
-        .bug-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .bug-remove {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            border: none;
-            border-radius: 4px;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-        
-        .bug-remove:hover {
-            background: rgba(255, 100, 100, 0.2);
-            color: rgba(255, 100, 100, 0.9);
-        }
-        
-        .add-bug-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            padding: 10px 16px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-top: 12px;
-        }
-        
-        .add-bug-btn:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-        
-        .file-input-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-top: 8px;
-        }
-        
-        .file-input-wrapper input[type="file"] {
-            position: absolute;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-        
-        .file-input-label {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            padding: 8px 12px;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-block;
-        }
-        
-        .file-input-label:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.25);
-        }
-        
-        .file-preview {
-            margin-top: 12px;
-            display: none;
-        }
-        
-        .file-preview img {
-            max-width: 200px;
-            max-height: 150px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        
-        .file-info {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        
-        .file-name {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 13px;
-        }
-        
-        .remove-file-btn {
-            background: rgba(255, 100, 100, 0.1);
-            color: rgba(255, 100, 100, 0.8);
-            border: 1px solid rgba(255, 100, 100, 0.2);
-            border-radius: 4px;
-            padding: 4px 8px;
-            font-size: 11px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .remove-file-btn:hover {
-            background: rgba(255, 100, 100, 0.2);
-            color: rgba(255, 100, 100, 1);
-        }
-        
-        .friend-referral {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 20px;
-        }
-        
-        .friend-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 12px;
-            position: relative;
-        }
-        
-        .friend-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .friend-remove {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            border: none;
-            border-radius: 4px;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-        }
-        
-        .friend-remove:hover {
-            background: rgba(255, 100, 100, 0.2);
-            color: rgba(255, 100, 100, 0.9);
-        }
-        
-        .friend-inputs {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 8px;
-        }
-        
-        @media (max-width: 640px) {
-            .friend-inputs {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="Static/feedback.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Beta Feedback</h1>
-        <span class="subtitle">Grace Journal - Your Experience Matters</span>
-        
-        <p class="intro">
-            Thank you for testing Grace Journal! Your feedback is invaluable in helping us create the best possible experience.
-        </p>
-        
-        <form id="feedbackForm" action="https://getform.io/f/arogykxb" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_getform-id" value="grace-journal-beta-feedback">
-            
-            <!-- Contact Info -->
-            <div class="form-section">
-                <h2>Contact Information</h2>
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                </div>
+<div class="container">
+    <h1>Beta Feedback</h1>
+    <span class="subtitle">Grace Journal - Your Experience Matters</span>
+
+    <p class="intro">
+        Thank you for testing Grace Journal! Your feedback is invaluable in helping us create the best possible experience.
+    </p>
+
+    <form id="feedbackForm" action="https://getform.io/f/arogykxb" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_getform-id" value="grace-journal-beta-feedback">
+
+        <!-- Contact Info -->
+        <div class="form-section">
+            <h2>Contact Information</h2>
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
             </div>
-            
-            <!-- General Experience -->
-            <div class="form-section">
-                <h2>General Experience</h2>
-                <div class="form-group">
-                    <label for="getting-started">Getting Started</label>
-                    <div class="question-text">How easy was it to get started using Grace?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="start-very-easy" name="getting-started" value="very-easy">
-                            <label for="start-very-easy">Very Easy</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="start-easy" name="getting-started" value="easy">
-                            <label for="start-easy">Easy</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="start-neutral" name="getting-started" value="neutral">
-                            <label for="start-neutral">Neutral</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="start-difficult" name="getting-started" value="difficult">
-                            <label for="start-difficult">Difficult</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="start-very-difficult" name="getting-started" value="very-difficult">
-                            <label for="start-very-difficult">Very Difficult</label>
-                        </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+            </div>
+        </div>
+
+        <!-- Recently Deleted -->
+        <div class="form-section">
+            <h2>Recently Deleted</h2>
+            <div class="form-group">
+                <label for="recovering-notes">Recovering Notes</label>
+                <div class="question-text">How was your experience recovering deleted notes?</div>
+                <textarea id="recovering-notes" name="recovering-notes" placeholder="Share any feedback about restoring or permanently deleting notes..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="accessing-deleted">Accessing Recently Deleted</label>
+                <div class="question-text">Was accessing Recently Deleted (via the big plus button hold) intuitive?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="access-very-intuitive" name="accessing-deleted" value="very-intuitive">
+                        <label for="access-very-intuitive">Very Intuitive</label>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="app-purpose">Understanding the App</label>
-                    <div class="question-text">Did you understand what the app was for right away?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="purpose-immediately" name="app-purpose" value="immediately">
-                            <label for="purpose-immediately">Immediately</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="purpose-quickly" name="app-purpose" value="quickly">
-                            <label for="purpose-quickly">Pretty Quickly</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="purpose-eventually" name="app-purpose" value="eventually">
-                            <label for="purpose-eventually">Eventually</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="purpose-confused" name="app-purpose" value="confused">
-                            <label for="purpose-confused">Still Confused</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="access-intuitive" name="accessing-deleted" value="intuitive">
+                        <label for="access-intuitive">Intuitive</label>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="stuck-points">Confusion Points</label>
-                    <div class="question-text">Were there any points where you felt stuck or confused?</div>
-                    <textarea id="stuck-points" name="stuck-points" placeholder="Describe any moments where you felt lost or unsure..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="general-bug-yes" name="general-bug" value="yes">
-                            <label for="general-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="general-bug-no" name="general-bug" value="no">
-                            <label for="general-bug-no">No</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="access-neutral" name="accessing-deleted" value="neutral">
+                        <label for="access-neutral">Neutral</label>
                     </div>
-                    <div class="bug-report-form" id="general-bug-form" style="display: none;">
-                        <div id="general-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('general')">+ Add Another Bug</button>
+                    <div class="radio-item">
+                        <input type="radio" id="access-confusing" name="accessing-deleted" value="confusing">
+                        <label for="access-confusing">Confusing</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="access-very-confusing" name="accessing-deleted" value="very-confusing">
+                        <label for="access-very-confusing">Very Confusing</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Notes & Editing -->
-            <div class="form-section">
-                <h2>Notes & Editing</h2>
-                <div class="form-group">
-                    <label for="notes-experience">Creating & Editing Notes</label>
-                    <div class="question-text">How was your experience creating and editing notes?</div>
-                    <textarea id="notes-experience" name="notes-experience" placeholder="Share your thoughts on the note creation and editing experience..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="formatting">Text Formatting</label>
-                    <div class="question-text">Was formatting text (bold, italic, underline, etc.) intuitive?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="format-very-intuitive" name="formatting" value="very-intuitive">
-                            <label for="format-very-intuitive">Very Intuitive</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="format-intuitive" name="formatting" value="intuitive">
-                            <label for="format-intuitive">Intuitive</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="format-neutral" name="formatting" value="neutral">
-                            <label for="format-neutral">Neutral</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="format-confusing" name="formatting" value="confusing">
-                            <label for="format-confusing">Confusing</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="format-very-confusing" name="formatting" value="very-confusing">
-                            <label for="format-very-confusing">Very Confusing</label>
-                        </div>
+
+            <div class="form-group">
+                <label for="multi-select">Multi-Select & Actions</label>
+                <div class="question-text">Did multi-selecting and performing bulk actions (restore/delete) feel smooth and responsive?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="multi-very-smooth" name="multi-select" value="very-smooth">
+                        <label for="multi-very-smooth">Very Smooth</label>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="undo-redo">Undo/Redo Functionality</label>
-                    <div class="question-text">Did undo/redo work the way you expected?</div>
-                    <textarea id="undo-redo" name="undo-redo" placeholder="Any issues or feedback about undo/redo functionality..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="notes-bug-yes" name="notes-bug" value="yes">
-                            <label for="notes-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="notes-bug-no" name="notes-bug" value="no">
-                            <label for="notes-bug-no">No</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="multi-smooth" name="multi-select" value="smooth">
+                        <label for="multi-smooth">Smooth</label>
                     </div>
-                    <div class="bug-report-form" id="notes-bug-form" style="display: none;">
-                        <div id="notes-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('notes')">+ Add Another Bug</button>
+                    <div class="radio-item">
+                        <input type="radio" id="multi-neutral" name="multi-select" value="neutral">
+                        <label for="multi-neutral">Neutral</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="multi-laggy" name="multi-select" value="laggy">
+                        <label for="multi-laggy">Laggy</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="multi-very-laggy" name="multi-select" value="very-laggy">
+                        <label for="multi-very-laggy">Very Laggy</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Scripture Features -->
-            <div class="form-section">
-                <h2>Scripture Features</h2>
-                <div class="form-group">
-                    <label for="auto-insert">Auto-Insert Scripture</label>
-                    <div class="question-text">How did you find the auto-insert scripture feature?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="scripture-easy" name="auto-insert" value="easy">
-                            <label for="scripture-easy">Easy</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="scripture-confusing" name="auto-insert" value="confusing">
-                            <label for="scripture-confusing">Confusing</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="scripture-buggy" name="auto-insert" value="buggy">
-                            <label for="scripture-buggy">Buggy</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="scripture-didnt-use" name="auto-insert" value="didnt-use">
-                            <label for="scripture-didnt-use">Didn't Use</label>
-                        </div>
+
+            <div class="form-group">
+                <label>Report a Bug</label>
+                <div class="question-text">Did you encounter any bugs while using Recently Deleted?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="deleted-bug-yes" name="deleted-bug" value="yes">
+                        <label for="deleted-bug-yes">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="deleted-bug-no" name="deleted-bug" value="no">
+                        <label for="deleted-bug-no">No</label>
                     </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="bible-translations">Bible Translations</label>
-                    <div class="question-text">Was switching Bible translations smooth?</div>
-                    <textarea id="bible-translations" name="bible-translations" placeholder="Your experience with switching between Bible translations..."></textarea>
+                <div class="bug-report-form" id="deleted-bug-form" style="display: none;">
+                    <div id="deleted-bug-reports"></div>
+                    <button type="button" class="add-bug-btn" onclick="addBugReport('deleted')">+ Add Another Bug</button>
                 </div>
-                
-                <div class="form-group">
-                    <label for="verse-detection">Verse Detection</label>
-                    <div class="question-text">Did the verse detection feel accurate when typing references?</div>
-                    <textarea id="verse-detection" name="verse-detection" placeholder="How well did the app detect and suggest verses..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="scripture-bug-yes" name="scripture-bug" value="yes">
-                            <label for="scripture-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="scripture-bug-no" name="scripture-bug" value="no">
-                            <label for="scripture-bug-no">No</label>
-                        </div>
+            </div>
+        </div>
+
+        <!-- Folders -->
+        <div class="form-section">
+            <h2>Folders</h2>
+            <div class="form-group">
+                <label for="managing-folders">Creating & Managing Folders</label>
+                <div class="question-text">How was your experience creating, renaming, and deleting folders?</div>
+                <textarea id="managing-folders" name="managing-folders" placeholder="Share any feedback about organizing your notes into folders..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="moving-notes">Moving Notes</label>
+                <div class="question-text">Was moving notes into folders intuitive (using hard press → Move)?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="move-very-intuitive" name="moving-notes" value="very-intuitive">
+                        <label for="move-very-intuitive">Very Intuitive</label>
                     </div>
-                    <div class="bug-report-form" id="scripture-bug-form" style="display: none;">
-                        <div id="scripture-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('scripture')">+ Add Another Bug</button>
+                    <div class="radio-item">
+                        <input type="radio" id="move-intuitive" name="moving-notes" value="intuitive">
+                        <label for="move-intuitive">Intuitive</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="move-neutral" name="moving-notes" value="neutral">
+                        <label for="move-neutral">Neutral</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="move-confusing" name="moving-notes" value="confusing">
+                        <label for="move-confusing">Confusing</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="move-very-confusing" name="moving-notes" value="very-confusing">
+                        <label for="move-very-confusing">Very Confusing</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Navigation & Organization -->
-            <div class="form-section">
-                <h2>Navigation & Organization</h2>
-                <div class="form-group">
-                    <label for="note-filters">Note Filters</label>
-                    <div class="question-text">Did you find the note filters (Today, Last 7 days, etc.) useful?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="filters-very-useful" name="note-filters" value="very-useful">
-                            <label for="filters-very-useful">Very Useful</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="filters-useful" name="note-filters" value="useful">
-                            <label for="filters-useful">Useful</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="filters-neutral" name="note-filters" value="neutral">
-                            <label for="filters-neutral">Neutral</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="filters-not-useful" name="note-filters" value="not-useful">
-                            <label for="filters-not-useful">Not Useful</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="filters-didnt-use" name="note-filters" value="didnt-use">
-                            <label for="filters-didnt-use">Didn't Use</label>
-                        </div>
+
+            <div class="form-group">
+                <label for="deleting-folders">Deleting Folders</label>
+                <div class="question-text">Did you understand what happens when a folder is deleted (notes move to Recently Deleted)?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="delete-yes-clearly" name="deleting-folders" value="yes-clearly">
+                        <label for="delete-yes-clearly">Yes, clearly</label>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="finding-notes">Finding Specific Notes</label>
-                    <div class="question-text">Was it easy to locate a specific note?</div>
-                    <textarea id="finding-notes" name="finding-notes" placeholder="Your experience finding and organizing notes..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="pinned-notes">Pinned/Important Notes</label>
-                    <div class="question-text">Did pinned or important notes feel distinct enough?</div>
-                    <textarea id="pinned-notes" name="pinned-notes" placeholder="Feedback on how pinned/important notes are displayed..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="navigation-bug-yes" name="navigation-bug" value="yes">
-                            <label for="navigation-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="navigation-bug-no" name="navigation-bug" value="no">
-                            <label for="navigation-bug-no">No</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="delete-somewhat" name="deleting-folders" value="somewhat">
+                        <label for="delete-somewhat">Somewhat</label>
                     </div>
-                    <div class="bug-report-form" id="navigation-bug-form" style="display: none;">
-                        <div id="navigation-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('navigation')">+ Add Another Bug</button>
+                    <div class="radio-item">
+                        <input type="radio" id="delete-unclear" name="deleting-folders" value="no-unclear">
+                        <label for="delete-unclear">No, it was unclear</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Visuals & Design -->
-            <div class="form-section">
-                <h2>Visuals & Design</h2>
-                <div class="form-group">
-                    <label for="home-screen">Home Screen Welcome</label>
-                    <div class="question-text">Did the home screen feel welcoming, especially when you had no notes yet?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="home-very-welcoming" name="home-screen" value="very-welcoming">
-                            <label for="home-very-welcoming">Very Welcoming</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="home-welcoming" name="home-screen" value="welcoming">
-                            <label for="home-welcoming">Welcoming</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="home-neutral" name="home-screen" value="neutral">
-                            <label for="home-neutral">Neutral</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="home-cold" name="home-screen" value="cold">
-                            <label for="home-cold">Cold/Unwelcoming</label>
-                        </div>
+
+            <div class="form-group">
+                <label>Report a Bug</label>
+                <div class="question-text">Did you encounter any bugs while using folders or moving notes?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="folders-bug-yes" name="folders-bug" value="yes">
+                        <label for="folders-bug-yes">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="folders-bug-no" name="folders-bug" value="no">
+                        <label for="folders-bug-no">No</label>
                     </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="interface-clean">Interface Cleanliness</label>
-                    <div class="question-text">Was the interface clean and uncluttered?</div>
-                    <textarea id="interface-clean" name="interface-clean" placeholder="Your thoughts on the overall design and layout..."></textarea>
+                <div class="bug-report-form" id="folders-bug-form" style="display: none;">
+                    <div id="folders-bug-reports"></div>
+                    <button type="button" class="add-bug-btn" onclick="addBugReport('folders')">+ Add Another Bug</button>
                 </div>
-                
-                <div class="form-group">
-                    <label for="text-layout">Text Size & Layout</label>
-                    <div class="question-text">Was text size and layout comfortable to read and write in?</div>
-                    <textarea id="text-layout" name="text-layout" placeholder="Feedback on readability and text layout..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="design-bug-yes" name="design-bug" value="yes">
-                            <label for="design-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="design-bug-no" name="design-bug" value="no">
-                            <label for="design-bug-no">No</label>
-                        </div>
+            </div>
+        </div>
+
+        <!-- iPad Support -->
+        <div class="form-section">
+            <h2>iPad Support</h2>
+            <div class="form-group">
+                <label for="ipad-experience">Overall Experience on iPad</label>
+                <div class="question-text">If you tested on iPad, how did Grace Journal perform?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-very-smooth" name="ipad-experience" value="very-smooth">
+                        <label for="ipad-very-smooth">Very Smooth</label>
                     </div>
-                    <div class="bug-report-form" id="design-bug-form" style="display: none;">
-                        <div id="design-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('design')">+ Add Another Bug</button>
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-smooth" name="ipad-experience" value="smooth">
+                        <label for="ipad-smooth">Smooth</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-neutral" name="ipad-experience" value="neutral">
+                        <label for="ipad-neutral">Neutral</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-laggy" name="ipad-experience" value="laggy">
+                        <label for="ipad-laggy">Laggy</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-very-laggy" name="ipad-experience" value="very-laggy">
+                        <label for="ipad-very-laggy">Very Laggy</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-not-tested" name="ipad-experience" value="not-tested">
+                        <label for="ipad-not-tested">Didn't Test</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Performance & Reliability -->
-            <div class="form-section">
-                <h2>Performance & Reliability</h2>
-                <div class="form-group">
-                    <label for="app-speed">App Responsiveness</label>
-                    <div class="question-text">Did the app feel fast and responsive?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="speed-very-fast" name="app-speed" value="very-fast">
-                            <label for="speed-very-fast">Very Fast</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="speed-fast" name="app-speed" value="fast">
-                            <label for="speed-fast">Fast</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="speed-acceptable" name="app-speed" value="acceptable">
-                            <label for="speed-acceptable">Acceptable</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="speed-slow" name="app-speed" value="slow">
-                            <label for="speed-slow">Slow</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="speed-very-slow" name="app-speed" value="very-slow">
-                            <label for="speed-very-slow">Very Slow</label>
-                        </div>
+
+            <div class="form-group">
+                <label for="layout-responsive">Layout & Responsiveness</label>
+                <div class="question-text">Did the layout and scaling feel natural on the bigger screen?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="layout-very-natural" name="layout-responsive" value="very-natural">
+                        <label for="layout-very-natural">Very Natural</label>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="typing-lag">Typing & Syncing</label>
-                    <div class="question-text">Did you notice any lag while typing or syncing notes?</div>
-                    <textarea id="typing-lag" name="typing-lag" placeholder="Any performance issues you noticed..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="note-saving">Note Saving</label>
-                    <div class="question-text">Did notes always save properly between sessions?</div>
-                    <textarea id="note-saving" name="note-saving" placeholder="Any issues with notes not saving or syncing..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Report a Bug</label>
-                    <div class="question-text">Did you encounter any bugs in this section?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="performance-bug-yes" name="performance-bug" value="yes">
-                            <label for="performance-bug-yes">Yes</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="performance-bug-no" name="performance-bug" value="no">
-                            <label for="performance-bug-no">No</label>
-                        </div>
+                    <div class="radio-item">
+                        <input type="radio" id="layout-natural" name="layout-responsive" value="natural">
+                        <label for="layout-natural">Natural</label>
                     </div>
-                    <div class="bug-report-form" id="performance-bug-form" style="display: none;">
-                        <div id="performance-bug-reports"></div>
-                        <button type="button" class="add-bug-btn" onclick="addBugReport('performance')">+ Add Another Bug</button>
+                    <div class="radio-item">
+                        <input type="radio" id="layout-neutral" name="layout-responsive" value="neutral">
+                        <label for="layout-neutral">Neutral</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="layout-unnatural" name="layout-responsive" value="unnatural">
+                        <label for="layout-unnatural">Unnatural</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="layout-very-unnatural" name="layout-responsive" value="very-unnatural">
+                        <label for="layout-very-unnatural">Very Unnatural</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="layout-not-tested" name="layout-responsive" value="not-tested">
+                        <label for="layout-not-tested">Didn't Test</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Sync & Storage -->
-            <div class="form-section">
-                <h2>Sync & Storage</h2>
-                <div class="form-group">
-                    <label for="multi-device">Multi-Device Syncing</label>
-                    <div class="question-text">If you tested on multiple devices, did syncing work as expected?</div>
-                    <textarea id="multi-device" name="multi-device" placeholder="Your experience with syncing across devices (or N/A if you only used one device)..."></textarea>
+
+            <div class="form-group">
+                <label>Report a Bug</label>
+                <div class="question-text">Did you encounter any display or performance issues on iPad?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-bug-yes" name="ipad-bug" value="yes">
+                        <label for="ipad-bug-yes">Yes</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="ipad-bug-no" name="ipad-bug" value="no">
+                        <label for="ipad-bug-no">No</label>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="data-safety">Data Safety Confidence</label>
-                    <div class="question-text">Did you feel confident that your notes were being saved safely?</div>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="safety-very-confident" name="data-safety" value="very-confident">
-                            <label for="safety-very-confident">Very Confident</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="safety-confident" name="data-safety" value="confident">
-                            <label for="safety-confident">Confident</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="safety-neutral" name="data-safety" value="neutral">
-                            <label for="safety-neutral">Neutral</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="safety-concerned" name="data-safety" value="concerned">
-                            <label for="safety-concerned">Concerned</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="safety-very-concerned" name="data-safety" value="very-concerned">
-                            <label for="safety-very-concerned">Very Concerned</label>
-                        </div>
+                <div class="bug-report-form" id="ipad-bug-form" style="display: none;">
+                    <div id="ipad-bug-reports"></div>
+                    <button type="button" class="add-bug-btn" onclick="addBugReport('ipad')">+ Add Another Bug</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- General Feedback -->
+        <div class="form-section">
+            <h2>General Feedback</h2>
+            <div class="form-group">
+                <label for="verification-page">Verification Page</label>
+                <div class="question-text">How did you find the new verification page design and flow?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="verify-very-smooth" name="verification-page" value="very-smooth">
+                        <label for="verify-very-smooth">Very Smooth</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="verify-smooth" name="verification-page" value="smooth">
+                        <label for="verify-smooth">Smooth</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="verify-neutral" name="verification-page" value="neutral">
+                        <label for="verify-neutral">Neutral</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="verify-clunky" name="verification-page" value="clunky">
+                        <label for="verify-clunky">Clunky</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="verify-very-clunky" name="verification-page" value="very-clunky">
+                        <label for="verify-very-clunky">Very Clunky</label>
                     </div>
                 </div>
             </div>
-            
-            <!-- Overall Impressions -->
-            <div class="form-section">
-                <h2>Overall Impressions</h2>
-                <div class="form-group">
-                    <label for="favorite-feature">Favorite Feature</label>
-                    <div class="question-text">What feature did you enjoy the most?</div>
-                    <textarea id="favorite-feature" name="favorite-feature" placeholder="Tell us about your favorite feature and why you liked it..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="frustrations">Frustrations</label>
-                    <div class="question-text">Was there anything frustrating about the app?</div>
-                    <textarea id="frustrations" name="frustrations" placeholder="Share any pain points or frustrating experiences..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="one-change">One Change</label>
-                    <div class="question-text">If you could change one thing, what would it be?</div>
-                    <textarea id="one-change" name="one-change" placeholder="The one thing you'd change or improve..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="recommend-grace">Would you recommend Grace Journal to your friends?</label>
-                    <div class="radio-group">
-                        <div class="radio-item">
-                            <input type="radio" id="recommend-definitely" name="recommend-grace" value="definitely">
-                            <label for="recommend-definitely">Definitely</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="recommend-probably" name="recommend-grace" value="probably">
-                            <label for="recommend-probably">Probably</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="recommend-maybe" name="recommend-grace" value="maybe">
-                            <label for="recommend-maybe">Maybe</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="recommend-probably-not" name="recommend-grace" value="probably-not">
-                            <label for="recommend-probably-not">Probably Not</label>
-                        </div>
-                        <div class="radio-item">
-                            <input type="radio" id="recommend-definitely-not" name="recommend-grace" value="definitely-not">
-                            <label for="recommend-definitely-not">Definitely Not</label>
-                        </div>
+
+            <div class="form-group">
+                <label for="overall-performance">Overall Performance</label>
+                <div class="question-text">Did you notice improvements in app speed and stability compared to the last beta?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="perf-much-better" name="overall-performance" value="much-better">
+                        <label for="perf-much-better">Much Better</label>
                     </div>
-                    <div class="friend-referral" id="friendReferral" style="display: none; margin-top: 20px;">
-                        <div class="question-text" style="margin-bottom: 12px;">We'd love to have them beta testing! Enter their details below if your friend is interested:</div>
-                        <div id="friend-forms"></div>
-                        <button type="button" class="add-bug-btn" onclick="addFriendForm()">+ Add Another Friend</button>
+                    <div class="radio-item">
+                        <input type="radio" id="perf-slightly-better" name="overall-performance" value="slightly-better">
+                        <label for="perf-slightly-better">Slightly Better</label>
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="additional-feedback">Additional Feedback</label>
-                    <div class="question-text">Any other thoughts, suggestions, or comments?</div>
-                    <textarea id="additional-feedback" name="additional-feedback" placeholder="Anything else you'd like to share..."></textarea>
+                    <div class="radio-item">
+                        <input type="radio" id="perf-same" name="overall-performance" value="same">
+                        <label for="perf-same">Same</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="perf-slightly-worse" name="overall-performance" value="slightly-worse">
+                        <label for="perf-slightly-worse">Slightly Worse</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="perf-much-worse" name="overall-performance" value="much-worse">
+                        <label for="perf-much-worse">Much Worse</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="perf-first-time" name="overall-performance" value="first-time">
+                        <label for="perf-first-time">First Time</label>
+                    </div>
                 </div>
             </div>
-            
-            <div class="submit-section">
-                <button type="submit" class="submit-btn">Submit Feedback</button>
-                <div class="thank-you" id="thankYou">
-                    <h3>Thank you!</h3>
-                    <p>Your feedback has been submitted successfully and will help us improve Grace Journal.</p>
+
+            <div class="form-group">
+                <label for="security-reliability">Security & Reliability</label>
+                <div class="question-text">Do you feel confident in how securely your notes are handled?</div>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="sec-very-confident" name="security-reliability" value="very-confident">
+                        <label for="sec-very-confident">Very Confident</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="sec-somewhat-confident" name="security-reliability" value="somewhat-confident">
+                        <label for="sec-somewhat-confident">Somewhat Confident</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="sec-neutral" name="security-reliability" value="neutral">
+                        <label for="sec-neutral">Neutral</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="sec-unsure" name="security-reliability" value="unsure">
+                        <label for="sec-unsure">Unsure</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="sec-not-confident" name="security-reliability" value="not-confident">
+                        <label for="sec-not-confident">Not Confident</label>
+                    </div>
                 </div>
             </div>
-        </form>
-    </div>
-    
-        <script>
-        let bugCounters = {};
-        let friendCounter = 0;
-        
-        // Handle radio button changes for bug reporting
-        document.addEventListener('change', function(e) {
-            if (e.target.type === 'radio' && e.target.name.endsWith('-bug')) {
-                const section = e.target.name.replace('-bug', '');
-                const bugForm = document.getElementById(section + '-bug-form');
-                
-                if (e.target.value === 'yes') {
-                    bugForm.style.display = 'block';
-                    if (!bugCounters[section]) {
-                        bugCounters[section] = 0;
-                        addBugReport(section);
-                    }
-                } else {
-                    bugForm.style.display = 'none';
-                }
-            }
-            
-            // Handle recommendation changes
-            if (e.target.name === 'recommend-grace') {
-                const friendReferral = document.getElementById('friendReferral');
-                if (e.target.value === 'definitely' || e.target.value === 'probably') {
-                    friendReferral.style.display = 'block';
-                    if (friendCounter === 0) {
-                        addFriendForm();
-                    }
-                } else {
-                    friendReferral.style.display = 'none';
-                }
-            }
-        });
-        
-        // Handle file uploads
-        function setupFileUpload(fileInput) {
-            const wrapper = fileInput.closest('.file-input-wrapper');
-            const preview = wrapper.querySelector('.file-preview') || createFilePreview(wrapper);
-            
-            fileInput.addEventListener('change', function(e) {
-                const file = e.target.files[0];
-                if (file) {
-                    showFilePreview(preview, file, fileInput);
-                } else {
-                    hideFilePreview(preview);
-                }
-            });
-        }
-        
-        function createFilePreview(wrapper) {
-            const preview = document.createElement('div');
-            preview.className = 'file-preview';
-            preview.innerHTML = `
-                <img style="display: none;">
-                <div class="file-info">
-                    <span class="file-name"></span>
-                    <button type="button" class="remove-file-btn" onclick="removeFile(this)">Remove</button>
-                </div>
-            `;
-            wrapper.appendChild(preview);
-            return preview;
-        }
-        
-        function showFilePreview(preview, file, fileInput) {
-            const img = preview.querySelector('img');
-            const fileName = preview.querySelector('.file-name');
-            
-            fileName.textContent = file.name;
-            preview.style.display = 'block';
-            
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    img.src = e.target.result;
-                    img.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            } else {
-                img.style.display = 'none';
-            }
-            
-            // Store reference to the input for removal
-            preview.querySelector('.remove-file-btn').fileInput = fileInput;
-        }
-        
-        function hideFilePreview(preview) {
-            preview.style.display = 'none';
-            const img = preview.querySelector('img');
-            img.src = '';
-            img.style.display = 'none';
-        }
-        
-        function removeFile(button) {
-            const fileInput = button.fileInput;
-            const preview = button.closest('.file-preview');
-            
-            // Clear the file input
-            fileInput.value = '';
-            
-            // Hide the preview
-            hideFilePreview(preview);
-        }
-        
-        function addBugReport(section) {
-            if (!bugCounters[section]) bugCounters[section] = 0;
-            bugCounters[section]++;
-            
-            const bugReports = document.getElementById(section + '-bug-reports');
-            const bugId = section + '-bug-' + bugCounters[section];
-            
-            const bugItem = document.createElement('div');
-            bugItem.className = 'bug-item';
-            bugItem.innerHTML = `
-                <button type="button" class="bug-remove" onclick="removeBugReport('${bugId}', '${section}')">&times;</button>
-                <div class="form-group" style="margin-bottom: 12px;">
-                    <label for="${bugId}-what">What's the Bug?</label>
-                    <textarea id="${bugId}-what" name="${bugId}-what" placeholder="Describe what went wrong..." required></textarea>
-                </div>
-                <div class="form-group" style="margin-bottom: 12px;">
-                    <label for="${bugId}-where">Where is the Bug?</label>
-                    <textarea id="${bugId}-where" name="${bugId}-where" placeholder="Where in the app did this happen?" required></textarea>
-                </div>
-                <div class="form-group" style="margin-bottom: 0;">
-                    <label for="${bugId}-picture">Picture (Optional)</label>
-                    <div class="file-input-wrapper">
-                        <input type="file" id="${bugId}-picture" name="${bugId}-picture" accept="image/*">
-                        <label for="${bugId}-picture" class="file-input-label">Choose File</label>
+
+            <div class="form-group">
+                <label for="final-thoughts">Final Thoughts</label>
+                <div class="question-text">Any additional feedback, ideas, or bugs you'd like to share?</div>
+                <textarea id="final-thoughts" name="final-thoughts" placeholder="Anything else you'd like to share..." style="min-height: 120px;"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="recommend-grace">Would you recommend Grace Journal to your friends?</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="recommend-definitely" name="recommend-grace" value="definitely">
+                        <label for="recommend-definitely">Definitely</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="recommend-probably" name="recommend-grace" value="probably">
+                        <label for="recommend-probably">Probably</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="recommend-maybe" name="recommend-grace" value="maybe">
+                        <label for="recommend-maybe">Maybe</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="recommend-probably-not" name="recommend-grace" value="probably-not">
+                        <label for="recommend-probably-not">Probably Not</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="recommend-definitely-not" name="recommend-grace" value="definitely-not">
+                        <label for="recommend-definitely-not">Definitely Not</label>
                     </div>
                 </div>
-            `;
-            bugItem.id = bugId;
-            
-            bugReports.appendChild(bugItem);
-            
-            // Setup file upload for the new input
-            const fileInput = bugItem.querySelector('input[type="file"]');
-            setupFileUpload(fileInput);
-        }
-        
-        function removeBugReport(bugId, section) {
-            const bugItem = document.getElementById(bugId);
-            if (bugItem) {
-                bugItem.remove();
-            }
-            
-            // If no more bugs, hide the form
-            const bugReports = document.getElementById(section + '-bug-reports');
-            if (bugReports.children.length === 0) {
-                const bugForm = document.getElementById(section + '-bug-form');
-                bugForm.style.display = 'none';
-                // Uncheck the "Yes" radio button
-                const yesRadio = document.getElementById(section + '-bug-yes');
-                if (yesRadio) yesRadio.checked = false;
-                // Check the "No" radio button
-                const noRadio = document.getElementById(section + '-bug-no');
-                if (noRadio) noRadio.checked = true;
-            }
-        }
-        
-        function addFriendForm() {
-            friendCounter++;
-            const friendForms = document.getElementById('friend-forms');
-            const friendId = 'friend-' + friendCounter;
-            
-            const friendItem = document.createElement('div');
-            friendItem.className = 'friend-item';
-            friendItem.innerHTML = `
-                <button type="button" class="friend-remove" onclick="removeFriendForm('${friendId}')">&times;</button>
-                <div class="friend-inputs">
-                    <div>
-                        <label for="${friendId}-name">Friend's Name</label>
-                        <input type="text" id="${friendId}-name" name="${friendId}-name" placeholder="Friend's name" required>
-                    </div>
-                    <div>
-                        <label for="${friendId}-email">Friend's Email</label>
-                        <input type="email" id="${friendId}-email" name="${friendId}-email" placeholder="friend@example.com" required>
-                    </div>
+                <div class="friend-referral" id="friendReferral" style="display: none; margin-top: 20px;">
+                    <div class="question-text" style="margin-bottom: 12px;">We'd love to have them beta testing! Enter their details below if your friend is interested:</div>
+                    <div id="friend-forms"></div>
+                    <button type="button" class="add-bug-btn" onclick="addFriendForm()">+ Add Another Friend</button>
                 </div>
-            `;
-            friendItem.id = friendId;
-            
-            friendForms.appendChild(friendItem);
-        }
-        
-        function removeFriendForm(friendId) {
-            const friendItem = document.getElementById(friendId);
-            if (friendItem) {
-                friendItem.remove();
-            }
-            
-            // If no more friends, hide the referral section
-            const friendForms = document.getElementById('friend-forms');
-            if (friendForms.children.length === 0) {
-                const friendReferral = document.getElementById('friendReferral');
-                friendReferral.style.display = 'none';
-                // Uncheck positive recommendation radio buttons
-                const recommendRadios = document.querySelectorAll('input[name="recommend-grace"]');
-                recommendRadios.forEach(radio => {
-                    if (radio.value === 'definitely' || radio.value === 'probably') {
-                        radio.checked = false;
-                    }
-                });
-            }
-        }
-        
-        // Fixed form submission handler
-        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            const form = this;
-            
-            // Show loading state
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            // Create FormData from the form
-            const formData = new FormData(form);
-            
-            // Submit to Getform
-            fetch('https://getform.io/f/arogykxb', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Success - hide form and show thank you
-                    form.style.display = 'none';
-                    const thankYou = document.getElementById('thankYou');
-                    thankYou.style.display = 'block';
-                    thankYou.scrollIntoView({ behavior: 'smooth' });
-                } else {
-                    throw new Error('Form submission failed with status: ' + response.status);
-                }
-            })
-            .catch(error => {
-                console.error('Submission error:', error);
-                // Reset button and show error
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                alert('There was an error submitting your feedback. Please try again.');
-            });
-        });
-    </script>
+            </div>
+        </div>
+
+        <div class="submit-section">
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+            <div class="thank-you" id="thankYou">
+                <h3>Thank you!</h3>
+                <p>Your feedback has been submitted successfully and will help us improve Grace Journal.</p>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="Static/feedback.js"></script>
 </body>
 </html>
