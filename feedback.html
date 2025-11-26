@@ -18,399 +18,120 @@
         Thank you for testing Grace Journal! Your feedback is invaluable in helping us create the best possible experience.
     </p>
 
-    <form id="feedbackForm" action="https://getform.io/f/arogykxb" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_getform-id" value="grace-journal-beta-feedback">
+    <form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+    <!-- Web3Forms access key -->
+    <input type="hidden" name="access_key" value="937ce72f-ecff-441a-ba03-77afaa6f91ef">
 
-        <!-- Contact Info -->
-        <div class="form-section">
-            <h2>Contact Information</h2>
-            <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-            </div>
+    <!-- Contact Info -->
+    <div class="form-section">
+        <h2>Contact Information</h2>
+        <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
         </div>
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+        </div>
+    </div>
 
-        <!-- Recently Deleted -->
-        <div class="form-section">
-            <h2>Recently Deleted</h2>
-            <div class="form-group">
-                <label for="recovering-notes">Recovering Notes</label>
-                <div class="question-text">How was your experience recovering deleted notes?</div>
-                <textarea id="recovering-notes" name="recovering-notes" placeholder="Share any feedback about restoring or permanently deleting notes..."></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="accessing-deleted">Accessing Recently Deleted</label>
-                <div class="question-text">Was accessing Recently Deleted (via the big plus button hold) intuitive?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="access-very-intuitive" name="accessing-deleted" value="very-intuitive">
-                        <label for="access-very-intuitive">Very Intuitive</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="access-intuitive" name="accessing-deleted" value="intuitive">
-                        <label for="access-intuitive">Intuitive</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="access-neutral" name="accessing-deleted" value="neutral">
-                        <label for="access-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="access-confusing" name="accessing-deleted" value="confusing">
-                        <label for="access-confusing">Confusing</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="access-very-confusing" name="accessing-deleted" value="very-confusing">
-                        <label for="access-very-confusing">Very Confusing</label>
-                    </div>
+    <!-- Overall Experience -->
+    <div class="form-section">
+        <h2>Overall Experience</h2>
+        <div class="form-group">
+            <label for="overall-experience">How have you found using Grace Journal so far?</label>
+            <div class="radio-group">
+                <div class="radio-item">
+                    <input type="radio" id="overall-amazing" name="overall-experience" value="Amazing">
+                    <label for="overall-amazing">Amazing</label>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label for="multi-select">Multi-Select & Actions</label>
-                <div class="question-text">Did multi-selecting and performing bulk actions (restore/delete) feel smooth and responsive?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="multi-very-smooth" name="multi-select" value="very-smooth">
-                        <label for="multi-very-smooth">Very Smooth</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="multi-smooth" name="multi-select" value="smooth">
-                        <label for="multi-smooth">Smooth</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="multi-neutral" name="multi-select" value="neutral">
-                        <label for="multi-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="multi-laggy" name="multi-select" value="laggy">
-                        <label for="multi-laggy">Laggy</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="multi-very-laggy" name="multi-select" value="very-laggy">
-                        <label for="multi-very-laggy">Very Laggy</label>
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" id="overall-good" name="overall-experience" value="Good">
+                    <label for="overall-good">Good</label>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label>Report a Bug</label>
-                <div class="question-text">Did you encounter any bugs while using Recently Deleted?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="deleted-bug-yes" name="deleted-bug" value="yes">
-                        <label for="deleted-bug-yes">Yes</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="deleted-bug-no" name="deleted-bug" value="no">
-                        <label for="deleted-bug-no">No</label>
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" id="overall-okay" name="overall-experience" value="Okay">
+                    <label for="overall-okay">Okay</label>
                 </div>
-                <div class="bug-report-form" id="deleted-bug-form" style="display: none;">
-                    <div id="deleted-bug-reports"></div>
-                    <button type="button" class="add-bug-btn" onclick="addBugReport('deleted')">+ Add Another Bug</button>
+                <div class="radio-item">
+                    <input type="radio" id="overall-hard" name="overall-experience" value="Hard to use">
+                    <label for="overall-hard">Hard to use</label>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Folders -->
-        <div class="form-section">
-            <h2>Folders</h2>
-            <div class="form-group">
-                <label for="managing-folders">Creating & Managing Folders</label>
-                <div class="question-text">How was your experience creating, renaming, and deleting folders?</div>
-                <textarea id="managing-folders" name="managing-folders" placeholder="Share any feedback about organizing your notes into folders..."></textarea>
-            </div>
+    <!-- Note Cards -->
+    <div class="form-section">
+        <h2>Note Cards</h2>
+        <div class="form-group">
+            <label for="note-cards">How do you feel about the new Note Card design?</label>
 
-            <div class="form-group">
-                <label for="moving-notes">Moving Notes</label>
-                <div class="question-text">Was moving notes into folders intuitive (using hard press → Move)?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="move-very-intuitive" name="moving-notes" value="very-intuitive">
-                        <label for="move-very-intuitive">Very Intuitive</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="move-intuitive" name="moving-notes" value="intuitive">
-                        <label for="move-intuitive">Intuitive</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="move-neutral" name="moving-notes" value="neutral">
-                        <label for="move-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="move-confusing" name="moving-notes" value="confusing">
-                        <label for="move-confusing">Confusing</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="move-very-confusing" name="moving-notes" value="very-confusing">
-                        <label for="move-very-confusing">Very Confusing</label>
-                    </div>
+            <!-- 🖼️ Old vs New Note Card images -->
+            <div class="note-card-images">
+                <div class="note-card-image">
+                    <div class="note-card-label">Old note cards</div>
+                    <img src="Static/old-note-cards.png" alt="Old note card design">
+                </div>
+                <div class="note-card-image">
+                    <div class="note-card-label">New note cards</div>
+                    <img src="Static/new-note-cards.png" alt="New note card design">
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="deleting-folders">Deleting Folders</label>
-                <div class="question-text">Did you understand what happens when a folder is deleted (notes move to Recently Deleted)?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="delete-yes-clearly" name="deleting-folders" value="yes-clearly">
-                        <label for="delete-yes-clearly">Yes, clearly</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="delete-somewhat" name="deleting-folders" value="somewhat">
-                        <label for="delete-somewhat">Somewhat</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="delete-unclear" name="deleting-folders" value="no-unclear">
-                        <label for="delete-unclear">No, it was unclear</label>
-                    </div>
+            <div class="radio-group" style="margin-top: 16px;">
+                <div class="radio-item">
+                    <input type="radio" id="cards-love" name="note-card-opinion" value="Love it">
+                    <label for="cards-love">Love it</label>
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label>Report a Bug</label>
-                <div class="question-text">Did you encounter any bugs while using folders or moving notes?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="folders-bug-yes" name="folders-bug" value="yes">
-                        <label for="folders-bug-yes">Yes</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="folders-bug-no" name="folders-bug" value="no">
-                        <label for="folders-bug-no">No</label>
-                    </div>
+                <div class="radio-item">
+                    <input type="radio" id="cards-not-fan" name="note-card-opinion" value="Not a fan">
+                    <label for="cards-not-fan">Not a fan</label>
                 </div>
-                <div class="bug-report-form" id="folders-bug-form" style="display: none;">
-                    <div id="folders-bug-reports"></div>
-                    <button type="button" class="add-bug-btn" onclick="addBugReport('folders')">+ Add Another Bug</button>
+                <div class="radio-item">
+                    <input type="radio" id="cards-old" name="note-card-opinion" value="I prefer the old note card">
+                    <label for="cards-old">I prefer the old note card</label>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- iPad Support -->
-        <div class="form-section">
-            <h2>iPad Support</h2>
-            <div class="form-group">
-                <label for="ipad-experience">Overall Experience on iPad</label>
-                <div class="question-text">If you tested on iPad, how did Grace Journal perform?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-very-smooth" name="ipad-experience" value="very-smooth">
-                        <label for="ipad-very-smooth">Very Smooth</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-smooth" name="ipad-experience" value="smooth">
-                        <label for="ipad-smooth">Smooth</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-neutral" name="ipad-experience" value="neutral">
-                        <label for="ipad-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-laggy" name="ipad-experience" value="laggy">
-                        <label for="ipad-laggy">Laggy</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-very-laggy" name="ipad-experience" value="very-laggy">
-                        <label for="ipad-very-laggy">Very Laggy</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-not-tested" name="ipad-experience" value="not-tested">
-                        <label for="ipad-not-tested">Didn't Test</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="layout-responsive">Layout & Responsiveness</label>
-                <div class="question-text">Did the layout and scaling feel natural on the bigger screen?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="layout-very-natural" name="layout-responsive" value="very-natural">
-                        <label for="layout-very-natural">Very Natural</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="layout-natural" name="layout-responsive" value="natural">
-                        <label for="layout-natural">Natural</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="layout-neutral" name="layout-responsive" value="neutral">
-                        <label for="layout-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="layout-unnatural" name="layout-responsive" value="unnatural">
-                        <label for="layout-unnatural">Unnatural</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="layout-very-unnatural" name="layout-responsive" value="very-unnatural">
-                        <label for="layout-very-unnatural">Very Unnatural</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="layout-not-tested" name="layout-responsive" value="not-tested">
-                        <label for="layout-not-tested">Didn't Test</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>Report a Bug</label>
-                <div class="question-text">Did you encounter any display or performance issues on iPad?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-bug-yes" name="ipad-bug" value="yes">
-                        <label for="ipad-bug-yes">Yes</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="ipad-bug-no" name="ipad-bug" value="no">
-                        <label for="ipad-bug-no">No</label>
-                    </div>
-                </div>
-                <div class="bug-report-form" id="ipad-bug-form" style="display: none;">
-                    <div id="ipad-bug-reports"></div>
-                    <button type="button" class="add-bug-btn" onclick="addBugReport('ipad')">+ Add Another Bug</button>
-                </div>
-            </div>
+    <!-- Features -->
+    <div class="form-section">
+        <h2>Features</h2>
+        <div class="form-group">
+            <label for="favourite-feature">What’s your favourite feature in Grace Journal?</label>
+            <textarea id="favourite-feature" name="favourite-feature" placeholder="Tell me what you’re loving…"></textarea>
         </div>
 
-        <!-- General Feedback -->
-        <div class="form-section">
-            <h2>General Feedback</h2>
-            <div class="form-group">
-                <label for="verification-page">Verification Page</label>
-                <div class="question-text">How did you find the new verification page design and flow?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="verify-very-smooth" name="verification-page" value="very-smooth">
-                        <label for="verify-very-smooth">Very Smooth</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="verify-smooth" name="verification-page" value="smooth">
-                        <label for="verify-smooth">Smooth</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="verify-neutral" name="verification-page" value="neutral">
-                        <label for="verify-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="verify-clunky" name="verification-page" value="clunky">
-                        <label for="verify-clunky">Clunky</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="verify-very-clunky" name="verification-page" value="very-clunky">
-                        <label for="verify-very-clunky">Very Clunky</label>
-                    </div>
-                </div>
-            </div>
+        <div class="form-group">
+            <label for="future-feature">What’s one feature you’d love to see added?</label>
+            <textarea id="future-feature" name="future-feature" placeholder="Dream a little – what would you add?"></textarea>
+        </div>
+    </div>
 
-            <div class="form-group">
-                <label for="overall-performance">Overall Performance</label>
-                <div class="question-text">Did you notice improvements in app speed and stability compared to the last beta?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="perf-much-better" name="overall-performance" value="much-better">
-                        <label for="perf-much-better">Much Better</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="perf-slightly-better" name="overall-performance" value="slightly-better">
-                        <label for="perf-slightly-better">Slightly Better</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="perf-same" name="overall-performance" value="same">
-                        <label for="perf-same">Same</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="perf-slightly-worse" name="overall-performance" value="slightly-worse">
-                        <label for="perf-slightly-worse">Slightly Worse</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="perf-much-worse" name="overall-performance" value="much-worse">
-                        <label for="perf-much-worse">Much Worse</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="perf-first-time" name="overall-performance" value="first-time">
-                        <label for="perf-first-time">First Time</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="security-reliability">Security & Reliability</label>
-                <div class="question-text">Do you feel confident in how securely your notes are handled?</div>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="sec-very-confident" name="security-reliability" value="very-confident">
-                        <label for="sec-very-confident">Very Confident</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="sec-somewhat-confident" name="security-reliability" value="somewhat-confident">
-                        <label for="sec-somewhat-confident">Somewhat Confident</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="sec-neutral" name="security-reliability" value="neutral">
-                        <label for="sec-neutral">Neutral</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="sec-unsure" name="security-reliability" value="unsure">
-                        <label for="sec-unsure">Unsure</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="sec-not-confident" name="security-reliability" value="not-confident">
-                        <label for="sec-not-confident">Not Confident</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="final-thoughts">Final Thoughts</label>
-                <div class="question-text">Any additional feedback, ideas, or bugs you'd like to share?</div>
-                <textarea id="final-thoughts" name="final-thoughts" placeholder="Anything else you'd like to share..." style="min-height: 120px;"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="recommend-grace">Would you recommend Grace Journal to your friends?</label>
-                <div class="radio-group">
-                    <div class="radio-item">
-                        <input type="radio" id="recommend-definitely" name="recommend-grace" value="definitely">
-                        <label for="recommend-definitely">Definitely</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="recommend-probably" name="recommend-grace" value="probably">
-                        <label for="recommend-probably">Probably</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="recommend-maybe" name="recommend-grace" value="maybe">
-                        <label for="recommend-maybe">Maybe</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="recommend-probably-not" name="recommend-grace" value="probably-not">
-                        <label for="recommend-probably-not">Probably Not</label>
-                    </div>
-                    <div class="radio-item">
-                        <input type="radio" id="recommend-definitely-not" name="recommend-grace" value="definitely-not">
-                        <label for="recommend-definitely-not">Definitely Not</label>
-                    </div>
-                </div>
-                <div class="friend-referral" id="friendReferral" style="display: none; margin-top: 20px;">
-                    <div class="question-text" style="margin-bottom: 12px;">We'd love to have them beta testing! Enter their details below if your friend is interested:</div>
-                    <div id="friend-forms"></div>
-                    <button type="button" class="add-bug-btn" onclick="addFriendForm()">+ Add Another Friend</button>
-                </div>
-            </div>
+    <!-- Things to Improve -->
+    <div class="form-section">
+        <h2>Things to Improve</h2>
+        <div class="form-group">
+            <label for="frustrations">Is there anything you don’t like or find frustrating about Grace Journal?</label>
+            <textarea id="frustrations" name="frustrations" placeholder="Be honest – what’s annoying, confusing, or getting in the way?"></textarea>
         </div>
 
-        <div class="submit-section">
-            <button type="submit" class="submit-btn">Submit Feedback</button>
-            <div class="thank-you" id="thankYou">
-                <h3>Thank you!</h3>
-                <p>Your feedback has been submitted successfully and will help us improve Grace Journal.</p>
-            </div>
+        <div class="form-group">
+            <label for="final-thoughts">Anything else you’d like to share?</label>
+            <textarea id="final-thoughts" name="final-thoughts" placeholder="Extra thoughts, ideas, or bugs…"></textarea>
         </div>
-    </form>
+    </div>
+
+    <div class="submit-section">
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+        <div class="thank-you" id="thankYou">
+            <h3>Thank you!</h3>
+            <p>Your feedback has been submitted successfully and will help us improve Grace Journal.</p>
+        </div>
+    </div>
+</form>
 </div>
 <script src="Static/feedback.js"></script>
 </body>
