@@ -130,7 +130,7 @@ textarea {
 }
 
 .note-card-image {
-    width: 230px;        /* final size of each preview box */
+    width: 300px;        /* final size of each preview box */
     text-align: center;
 }
 
@@ -494,6 +494,7 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
 
 
 
