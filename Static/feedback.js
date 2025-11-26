@@ -204,7 +204,6 @@ function removeFriendForm(friendId) {
     }
 }
 
-// Fixed form submission handler
 document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -219,8 +218,8 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     // Create FormData from the form
     const formData = new FormData(form);
 
-    // Submit to Getform
-    fetch('https://getform.io/f/arogykxb', {
+    // Submit to Web3Forms
+    fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData
     })
@@ -243,3 +242,5 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             alert('There was an error submitting your feedback. Please try again.');
         });
 });
+
+
