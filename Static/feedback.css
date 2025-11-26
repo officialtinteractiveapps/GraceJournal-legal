@@ -120,6 +120,19 @@ textarea {
     line-height: 1.6;
 }
 
+.note-card-images {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.note-card-image img {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+
 .radio-group {
     display: flex;
     flex-wrap: wrap;
@@ -464,3 +477,4 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
